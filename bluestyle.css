@@ -1,216 +1,280 @@
+/* Modern Reset & Typography */
+:root {
+    --primary-color: #2c3e50;    /* Dark Slate */
+    --accent-color: #3498db;     /* Bright Blue */
+    --bg-color: #f8f9fa;         /* Light Gray Background */
+    --card-bg: #ffffff;          /* White Card Background */
+    --text-color: #333333;       /* Dark Gray Text */
+    --text-light: #666666;       /* Medium Gray Text */
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+    --radius: 8px;
+}
+
 body {
     margin: 0;
     padding: 0;
-
-
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
+/* Header Section */
 header {
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); 
+    background-size: 200% 200%;
+    animation: gradientBG 15s ease infinite; 
+    color: white;
+    padding-bottom: 0; 
+}
 
-    background-color: #313C4E;
-
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .content {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px; 
+}
 
+.header_text {
+    flex: 1;
+    padding-right: 40px;
 }
 
 .content h1 {
-    color: white;
-
-}
-
-.content p {
-    color: white;
-
-}
-
-.ul_header_section_2 li {
-    color: white;
-
-}
-
-.header_section2 {
-
-    background-color: #222A33;
-
-
-}
-
-.header_section1_1 {
-
-
-    flex: 1;
-    padding-top: 5px;
-    padding-left: 9px;
-
+    font-size: 3em;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+    letter-spacing: -1px;
 }
 
 .sub_title {
-    color: #3D6F78;
-}
-
-nav {
-
-    overflow-x: auto;
-
-
-
-}
-
-nav .ul_header_section_2 {
-    display: flex;
-    flex-direction: row;
-
-    margin: 0px;
-    padding: 0px;
-    justify-content: space-between;
-    text-decoration: none;
-    list-style-type: none;
-    align-items: center;
-
-
-}
-
-nav .ul_header_section_2 li {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding: 0px 9px;
-}
-
-.ul_header_section_2 li a {
-    text-decoration: none;
-    color: white;
-    text-decoration: none;
-}
-
-.ul_header_section_2 li a:hover {
-    background-color: lightcoral;
+    color: rgba(255,255,255,0.9);
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    font-weight: 400;
 }
 
 .my_image {
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
-    width: 156px;
-    height: 156px;
-    padding: 25px;
     object-fit: cover;
+    border: 5px solid rgba(255,255,255,0.3);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-h1 h2 h3 p {
-    font-family: "Times New Roman";
-
-}
-
-h1 {
-    line-height: 0.0;
-}
-
-.container {
+/* Navigation Bar */
+.header_section2 {
+    background-color: rgba(0,0,0,0.2); 
+    backdrop-filter: blur(5px);
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 0px 10px;
+    justify-content: center;
 }
 
-.container h2 {
-    color: #9FC4C4;
-    text-decoration: underline;
-    font-weight: 900;
-    font-size: x-large;
+nav {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-.contain1 h3 {
+.ul_header_section_2 {
+    display: flex;
+    justify-content: center;   
+    align-items: center;       
+    gap: 25px;                 
+    list-style: none;
+    padding: 10px 0;           
     margin: 0;
+    flex-wrap: wrap;
+}
+
+.ul_header_section_2 li {
+    display: flex;             
+    align-items: center;       
+    height: 100%;              
+}
+
+.ul_header_section_2 li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: flex;             
+    align-items: center;       
+    gap: 8px;                  
+    line-height: 1;            
+}
+
+.ul_header_section_2 li a:hover {
+    color: #fdbb2d; 
+}
+
+/* Main Container Layout */
+.container {
+    display: grid;
+    grid-template-columns: 320px 1fr; 
+    gap: 30px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Cards (Sections) */
+.contain1, .contain2 {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 30px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Typography Headings */
+h2 {
+    color: var(--primary-color);
+    /* CHANGE 1: Reverted back to grey horizontal line */
+    border-bottom: 2px solid #eee; 
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 20px; 
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+h3 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* LEFT COLUMN LISTS (Education, etc.) */
+.compact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 50px 0; 
+}
+
+.compact-list li {
+    /* Padding to create space for the hover line */
+    padding: 12px 15px; 
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    /* CHANGE 2: Invisible border that turns blue on hover */
+    border-left: 3px solid transparent; 
+    transition: all 0.2s ease;
+}
+
+/* HOVER EFFECT for Left Tab items */
+.compact-list li:hover {
+    background-color: #f8fbfd; /* Subtle blue tint */
+    border-left-color: var(--accent-color); /* The Vertical Blue Line */
+}
+
+.compact-list li:last-child {
+    border-bottom: none;
+}
+
+/* Highlight text */
+.highlight {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-right: 5px;
+}
+
+.sub-text {
+    font-size: 0.85em;
+    color: var(--text-light);
+    margin-left: 5px;
+    background: #f0f0f0;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* Right Column Styles */
+.company-info {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+/* Skills Tags */
+.skills-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 50px; 
 }
 
 .skills {
-    background-color: #808080;
-    color: white;
-    border-radius: 5px;
+    background-color: #e3f2fd;
+    color: #1565c0;
     border: none;
-    padding: 7px;
+    padding: 5px 12px; 
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: default;
+    transition: transform 0.2s;
 }
 
- a {
-    text-decoration: none;
-    color: #808080;
+.skills:hover {
+    transform: translateY(-2px);
+    background-color: #bbdefb;
 }
 
-.percent {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: #722b88;
+/* Timeline / Jobs (Right Column) */
+.job, .project {
+    margin-bottom: 30px;
+    padding-left: 20px;
+    /* Vertical line on right items */
+    border-left: 3px solid #eee; 
+    transition: border-color 0.3s;
 }
 
-.tab1 {
-    display: flex;
-    align-items: flex-end;
-    
-}
-.tab1 p{
-    padding-right: 5px;
-}
-.em{
-    color: #808080;
+.job:hover, .project:hover {
+    border-left-color: var(--accent-color);
 }
 
-.grid {
-    display: inline-grid;
-    grid-template-columns: 100px 100px;
-    grid-template-rows: 20px 20px 20px 20px;
+.contain2 ul {
+    margin-top: 5px;
+    padding-left: 20px;
 }
 
-.item {
-    color: #3D6F78;
+.contain2 li {
+    margin-bottom: 5px;
+    color: #444;
 }
 
-@media (max-width:768px) {
-    body {
-        flex-direction: column;
-        font-size: 14px;
-        box-sizing: border-box;
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 30px;
+    }
+
+    .header_text {
+        padding-right: 0;
+        margin-top: 20px;
     }
 
     .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        padding:0px 15px;
-    }
-
-    nav .ul_header_section_2 {
-        display: flex;
-        flex-direction: column;
-
-    }
-
-    .tab1 {
-        display: flex;
-        flex-direction: column;
-
-
-    }
-    .tab1 p{
-        padding-left: 4px;
-    }
-
-    h2 {
-        font-size: x-large;
-    }
-
-    h3 {
-        font-size: larger;
-    }
-
-    li {
-        font-size: larger;
-    }
-
-    li a {
-        font-size: larger;
-    }
-
-    p {
-        font-size: medium;
+        grid-template-columns: 1fr; 
     }
 }
